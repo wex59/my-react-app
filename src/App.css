@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+
+
 .app-container {
-    min-height: 100vh;
+    font-family: "Passions Conflict", cursive;
+    
+    margin: 5em;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     background: #f8f9fa;
@@ -8,13 +14,14 @@
   .app-header {
     text-align: center;
     padding: 2rem;
-    background: #2c3e50;
+    background: #fdcde1;
     color: white;
   }
   
   .app-header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 5rem;
+    
   }
   
   .app-header p {
@@ -29,7 +36,8 @@
     margin: 0 auto;
   }
   
-  .description {
+  .player {
+    align-items: center;
     background: white;
     padding: 2rem;
     border-radius: 8px;

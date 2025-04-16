@@ -6,16 +6,16 @@ const App = () => {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Music Player</h1>
+        <h1>Weini's Music Player</h1>
       </header>
-
+      
       <main className="content">
-        <div className="description">
-          
+        <div className="player">
+          <YouTubePlayer />
         </div>
       </main>
 
-      <YouTubePlayer />
+      
     </div>
   );
 };
