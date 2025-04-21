@@ -6,9 +6,7 @@
     background: rgba(0, 0, 0, 0.8);
     padding: 2em;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
-  }
-
+}
   .control-btn {
     padding: 10px 20px;
     margin: 5px;
@@ -31,7 +29,7 @@
   
   .track-info {
     color: white;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     max-width: 300px;
     white-space: nowrap;
     overflow: hidden;
@@ -47,5 +45,14 @@
     
     .track-info {
       display: none;
+    }
+    .control-btn {
+      padding: 5px 10px;
+
+    }
+
+    
+    .play-btn {
+      padding: 6px 12px;
     }
   }

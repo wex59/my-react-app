@@ -1,32 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Redressed&display=swap');
 
 .app-container {
-    font-family: "Passions Conflict", cursive;
-    
-    margin: 5em;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    background: #f8f9fa;
-  }
+  margin: 0 5em 5em 5em;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-image 1s;
+  background-attachment: fixed;
+}
   
   .app-header {
+    font-family: "Passions Conflict", cursive;
     text-align: center;
-    padding: 2rem;
-    background: #fdcde1;
+    background: #fea2c8;
     color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+  }
+
+  .playlist-info {
+    position: relative;
+    left:90%;
+    z-index: 1001;
+    display: inline-block;
+    width: fit-content;
+  }
+  
+  .help-icon {
+    background-color: #333;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 0 10px;
+  }
+  
+  .help-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .playlist-dropdown {
+    font-family: "Redressed", cursive;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-80%);
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    min-width: 250px;
+    margin-top: 10px;
+    z-index: 1002;
+    display: block;
+  }
+  
+  .playlist-dropdown h3 {
+    color: #e91e63;
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+  }
+  
+  .playlist-dropdown p {
+    color: #333;
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+  }
+  
+  .playlist-dropdown a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .playlist-dropdown a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app-header {
+      padding: 1.5rem;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .help-icon {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+    
   }
   
   .app-header h1 {
     margin: 0;
     font-size: 5rem;
-    
-  }
-  
-  .app-header p {
-    margin: 0.5rem 0 0;
-    color: #ecf0f1;
+
   }
   
   .content {
@@ -34,22 +120,68 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
   }
   
   .player {
-    align-items: center;
-    background: white;
+    background: #fea2c8;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 735px) {
     .app-header h1 {
-      font-size: 2rem;
+      font-size: 4rem;
     }
-  
+    .app-container {
+      margin: 2em;
+    }
+    
     .content {
       padding: 1rem;
+      min-height: 50vh;
     }
+  
+    .player {
+      padding: 1rem;
+      width: 95%;
+    }
+  
+  }
+
+  @media (max-width: 639px) {
+    .app-header h1 {
+      font-size: 4rem;
+    }
+    .app-container {
+      margin: 1em;
+    }
+    
+    .player {
+      padding: 0.5rem;
+    }
+    .playlist-info {
+      position: relative;
+      left: 90%;
+    }
+    .playlist-dropdown {
+      width: 250px;
+    }
+    
+  }
+
+  @media (max-width: 538px){
+    
+    .playlist-info {
+     
+      left: 80%;
+    }
+    
   }

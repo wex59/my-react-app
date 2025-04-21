@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import PlayerControls from '../PlayerControl/PlayerControl';
 import './Player.css';
 
-const YouTubePlayer = () => {
+const YouTubePlayer = ({ backgrounds, onTrackChange }) => {
   const playerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState('');
+  const [bgIndex, setBgIndex] = useState(0);
   const playlistId = 'PLIIPaNcOfLfxJZ6rEVHT5Kko-GDvEe8gD';
 
   useEffect(() => {
@@ -28,6 +29,13 @@ const YouTubePlayer = () => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (backgrounds.length > 0) {
+      const newIndex = bgIndex % backgrounds.length;
+      onTrackChange(backgrounds[newIndex]);
+    }
+  }, [bgIndex, backgrounds, onTrackChange]);
 
   const initializePlayer = () => {
     playerRef.current = new window.YT.Player('youtube-player', {
@@ -72,6 +80,8 @@ const YouTubePlayer = () => {
     try {
       const data = player.getVideoData();
       setCurrentTrack(data.title);
+      // Cycle to next background image
+      setBgIndex(prev => prev + 1);
     } catch (error) {
       console.error('Error fetching track info:', error);
     }
@@ -85,12 +95,19 @@ const YouTubePlayer = () => {
     }
   };
 
+  //change background image
+  const handleTrackChange = () => {
+    setBgIndex(prev => prev + 1);
+  };
+
   const nextVideo = () => {
     playerRef.current.nextVideo();
+    handleTrackChange();
   };
 
   const previousVideo = () => {
     playerRef.current.previousVideo();
+    handleTrackChange();
   };
 
   return (
